@@ -174,7 +174,7 @@
 						class="flex bg-yellow-300 p-2 border-gray-300 border-b">
 						<!-- info -->
 						<div class="my-auto leading-tight">
-							<div class="font-bold">Service Announcement</div>
+							<div class="font-bold">{{ t('svc_announce') }}</div>
 							<div class="text-sm">
 								<span
 									>Changes were made to mqtt.meshnet.si. Uplink your nodes to
@@ -246,7 +246,7 @@
 
 						<!-- app info -->
 						<div v-if="!isShowingMobileSearch" class="my-auto leading-tight">
-							<div class="font-bold">Meshtastic Map</div>
+							<div class="font-bold">{{ t(\'meshtastic_map\') }}</div>
 							<div class="text-xs">
 								Created by
 								<a class="link" target="_blank" href="https://liamcottle.com"
@@ -269,7 +269,7 @@
 								v-model="searchText"
 								type="text"
 								class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-								:placeholder="`Search ${nodes.length} nodes...`" />
+								:placeholder="`${t('search')} ${nodes.length} ${t('nodes_lc')}...`" />
 							<div
 								v-if="searchText !== ''"
 								class="absolute z-search bg-white w-full border border-gray-200 rounded-lg shadow-md mt-1 overflow-y-scroll max-h-80 divide-y divide-gray-200">
@@ -412,6 +412,7 @@
 									<span class="tooltip-text">Random</span>
 								</div>
 							</a>
+							<a href="#" onclick="toggleLang()" class="tooltip rounded-full px-2 py-1 text-xs font-bold border border-gray-300 hover:bg-gray-100" :title="_lang==='en'?'中文':'English'"><span v-text="_lang==='en'?'中文':'EN'"></span></a>
 							<a
 								@click="isShowingSettings = true"
 								href="javascript:void(0)"
@@ -539,7 +540,7 @@
 											<img
 												src="./icon.png"
 												class="mx-auto w-16 h-16 rounded mb-1" />
-											<h1 class="font-bold">Meshtastic Map</h1>
+											<h1 class="font-bold">{{ t(\'meshtastic_map\') }}</h1>
 											<h2>
 												Created by
 												<a
@@ -662,7 +663,7 @@
 
 										<!-- features -->
 										<div>
-											<div class="font-bold mb-2">Features</div>
+											<div class="font-bold mb-2">{{ t(\'features\') }}</div>
 											<div
 												class="bg-gray-100 rounded p-2 border border-gray-200">
 												<ul class="list-disc list-inside">
@@ -698,8 +699,8 @@
 															class="link"
 															target="_blank"
 															href="https://github.com/Komelt/meshtastic-map/issues"
-															>Open an issue</a
-														>
+															>{{ t('open_issue') }}</a
+															>
 														on GitHub.
 													</li>
 												</ul>
@@ -708,7 +709,7 @@
 
 										<!-- faq -->
 										<div>
-											<div class="font-bold mb-2">FAQ</div>
+											<div class="font-bold mb-2">{{ t(\'faq\') }}</div>
 											<div class="space-y-2">
 												<div
 													class="bg-gray-100 rounded p-2 border border-gray-200">
@@ -791,7 +792,7 @@
 
 										<!-- legal -->
 										<div>
-											<div class="font-bold mb-2">Legal</div>
+											<div class="font-bold mb-2">{{ t(\'legal\') }}</div>
 											<div
 												class="bg-gray-100 rounded p-2 border border-gray-200">
 												<div>
@@ -870,8 +871,8 @@
 								<div class="p-2 border-b border-gray-200 shadow">
 									<div class="flex items-start justify-between">
 										<div>
-											<h2 class="font-bold">Meshtastic Devices</h2>
-											<h3 class="text-sm">Ordered by most popular</h3>
+											<h2 class="font-bold">{{ t(\'devices\') }}</h2>
+											<h3 class="text-sm">{{ t('by_popular')</h3>
 										</div>
 										<div class="my-auto ml-3 flex h-7 items-center">
 											<a
@@ -985,7 +986,7 @@
 											</div>
 										</div>
 										<div class="my-auto mr-auto">
-											<h2 class="font-bold">Node Info</h2>
+											<h2 class="font-bold">{{ t(\'node_info\') }}</h2>
 											<h3 class="text-sm">{{ selectedNode.long_name }}</h3>
 										</div>
 										<div class="my-auto ml-2 flex h-7 items-center space-x-2">
@@ -1154,7 +1155,7 @@
 
 									<!-- details -->
 									<div>
-										<div class="bg-gray-200 p-2 font-semibold">Details</div>
+										<div class="bg-gray-200 p-2 font-semibold">{{ t('details') }}</$1>
 										<ul role="list" class="flex-1 divide-y divide-gray-200">
 											<!-- id -->
 											<li class="flex p-3">
@@ -1177,7 +1178,7 @@
 											<!-- role -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Role
+													{{ t(\'role\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													{{ selectedNode.role_name }}
@@ -1197,7 +1198,7 @@
 											<!-- firmware version -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Firmware
+													{{ t(\'firmware\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.firmware_version"
@@ -1211,12 +1212,12 @@
 
 									<!-- lora config -->
 									<div>
-										<div class="bg-gray-200 p-2 font-semibold">LoRa Config</div>
+										<div class="bg-gray-200 p-2 font-semibold">{{ t('lora_config') }}</$1>
 										<ul role="list" class="flex-1 divide-y divide-gray-200">
 											<!-- region -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Region
+													{{ t(\'region\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.region_name"
@@ -1231,7 +1232,7 @@
 											<!-- modem preset -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Modem Preset
+													{{ t(\'modem_preset\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.modem_preset_name"
@@ -1244,7 +1245,7 @@
 											<!-- has default channel -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Has Default Channel
+													{{ t(\'def_ch\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.has_default_channel != null"
@@ -1260,7 +1261,7 @@
 									<!-- position -->
 									<div>
 										<div @click.stop class="flex bg-gray-200 p-2 font-semibold">
-											<div class="my-auto">Position</div>
+											<div class="my-auto">{{ t('position') }}</$1>
 											<div class="ml-auto">
 												<button
 													@click="showNodePositionHistory(selectedNode.node_id)"
@@ -1313,7 +1314,7 @@
 											<!-- altitude -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Altitude
+													{{ t(\'altitude\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.altitude"
@@ -1328,7 +1329,7 @@
 									<!-- device metrics -->
 									<div>
 										<div class="flex bg-gray-200 p-2 font-semibold">
-											<div class="my-auto">Device Metrics</div>
+											<div class="my-auto">{{ t('device_metrics') }}</$1>
 											<div class="my-auto ml-auto">
 												<select
 													v-model="deviceMetricsTimeRange"
@@ -1354,7 +1355,7 @@
 																		class="my-auto w-2 h-2 bg-blue-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Battery Level
+																		{{ t(\'battery\') }}
 																	</div>
 																</div>
 																<div class="flex mx-auto">
@@ -1362,7 +1363,7 @@
 																		class="my-auto w-2 h-2 bg-green-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Channel Utilization
+																		{{ t(\'ch_util\') }}
 																	</div>
 																</div>
 																<div class="flex mx-auto">
@@ -1370,7 +1371,7 @@
 																		class="my-auto w-2 h-2 bg-orange-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Air Util TX
+																		{{ t(\'air_util\') }}
 																	</div>
 																</div>
 															</div>
@@ -1387,7 +1388,7 @@
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.battery_level">
 														<span v-if="selectedNode.battery_level > 100"
-															>Plugged In</span
+															>{{ t('plugged_in') }}</span
 														>
 														<span v-else
 															>{{ selectedNode.battery_level }}%</span
@@ -1400,7 +1401,7 @@
 											<!-- voltage -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Voltage
+													{{ t(\'voltage\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.voltage"
@@ -1443,7 +1444,7 @@
 											<!-- air util tx -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Uptime
+													{{ t(\'uptime\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.uptime_seconds"
@@ -1459,7 +1460,7 @@
 									<!-- environment metrics -->
 									<div>
 										<div class="flex bg-gray-200 p-2 font-semibold">
-											<div class="my-auto">Environment Metrics</div>
+											<div class="my-auto">{{ t('env_metrics') }}</$1>
 											<div class="my-auto ml-auto">
 												<select
 													v-model="environmentMetricsTimeRange"
@@ -1485,7 +1486,7 @@
 																		class="my-auto w-2 h-2 bg-blue-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Temperature
+																		{{ t('temperature') }}
 																	</div>
 																</div>
 																<div class="flex mx-auto">
@@ -1493,7 +1494,7 @@
 																		class="my-auto w-2 h-2 bg-green-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Humidity
+																		{{ t(\'rel_humidity\') }}
 																	</div>
 																</div>
 																<div class="flex mx-auto">
@@ -1501,7 +1502,7 @@
 																		class="my-auto w-2 h-2 bg-orange-500 rounded-full"></div>
 																	<div
 																		class="my-auto ml-1 text-sm text-gray-500">
-																		Pressure
+																		{{ t(\'bar_pressure\') }}
 																	</div>
 																</div>
 															</div>
@@ -1513,7 +1514,7 @@
 											<!-- temperature -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Temperature
+													{{ t('temperature') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.temperature"
@@ -1527,7 +1528,7 @@
 											<!-- relative humidity -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Relative Humidity
+													{{ t(\'rel_humidity\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.relative_humidity"
@@ -1542,7 +1543,7 @@
 											<!-- barometric pressure -->
 											<li class="flex p-3">
 												<div class="text-sm font-medium text-gray-900">
-													Barometric Pressure
+													{{ t(\'bar_pressure\') }}
 												</div>
 												<div class="ml-auto text-sm text-gray-700">
 													<span v-if="selectedNode.barometric_pressure"
@@ -1559,7 +1560,7 @@
 									<!-- power metrics -->
 									<div>
 										<div class="flex bg-gray-200 p-2 font-semibold">
-											<div class="my-auto">Power Metrics</div>
+											<div class="my-auto">{{ t('power_metrics') }}</$1>
 											<div class="my-auto ml-auto">
 												<select
 													v-model="powerMetricsTimeRange"
@@ -1740,7 +1741,7 @@
 									<!-- traceroutes -->
 									<div>
 										<div class="bg-gray-200 p-2">
-											<div class="font-semibold">Trace Routes</div>
+											<div class="font-semibold">{{ t('trace_routes') }}</$1>
 											<div class="text-sm text-gray-600">
 												Only 5 most recent are shown
 											</div>
@@ -1801,7 +1802,7 @@
 
 									<!-- other -->
 									<div>
-										<div class="bg-gray-200 p-2 font-semibold">Other</div>
+										<div class="bg-gray-200 p-2 font-semibold">{{ t('other') }}</$1>
 										<ul role="list" class="flex-1 divide-y divide-gray-200">
 											<!-- first seen -->
 											<li class="flex p-3">
@@ -1860,7 +1861,7 @@
 									<!-- share -->
 									<div>
 										<div class="flex bg-gray-200 p-2 font-semibold">
-											<div class="my-auto">Share Link</div>
+											<div class="my-auto">{{ t('share_link') }}</$1>
 											<div class="ml-auto">
 												<button
 													@click="copyShareLinkForNode(selectedNode.node_id)"
@@ -2118,7 +2119,7 @@
 									</div>
 
 									<div>
-										<div class="bg-gray-200 p-2 font-semibold">Raw Data</div>
+										<div class="bg-gray-200 p-2 font-semibold">{{ t('raw_data') }}</$1>
 										<div class="text-sm text-gray-700">
 											<pre class="bg-gray-100 rounded p-2 overflow-x-auto">
 {{ JSON.stringify(selectedTraceRoute, null, 4) }}</pre
@@ -2165,7 +2166,7 @@
 								<div class="p-2 border-b border-gray-200 shadow">
 									<div class="flex items-start justify-between">
 										<div>
-											<h2 class="font-bold">Settings</h2>
+											<h2 class="font-bold">{{ t(\'settings\') }}</h2>
 											<h3 class="text-sm">
 												Changes are only saved in this browser.
 											</h3>
@@ -2203,7 +2204,7 @@
 									<!-- configNodesMaxAgeInSeconds -->
 									<div class="p-2">
 										<label class="block text-sm font-medium text-gray-900"
-											>Nodes Max Age</label
+											>{{ t('nodes_max_age') }}</label
 										>
 										<div class="text-xs text-gray-600 mb-2">
 											Nodes not updated within this time are hidden. Reload to
@@ -2212,7 +2213,7 @@
 										<select
 											v-model="configNodesMaxAgeInSeconds"
 											class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-											<option :value="null">Show All</option>
+											<option :value="null">{{ t('show_all') }}</option>
 											<option value="900">15 minutes</option>
 											<option value="1800">30 minutes</option>
 											<option value="3600">1 hour</option>
@@ -2232,7 +2233,7 @@
 									<!-- configNodesDisconnectedAgeInSeconds -->
 									<div class="p-2">
 										<label class="block text-sm font-medium text-gray-900"
-											>Nodes Disconnected Age</label
+											>{{ t('nodes_disc_age') }}</label
 										>
 										<div class="text-xs text-gray-600 mb-2">
 											Nodes that have not uplinked to MQTT in this time will
@@ -2262,7 +2263,7 @@
 									<!-- configNodesOfflineAgeInSeconds -->
 									<div class="p-2">
 										<label class="block text-sm font-medium text-gray-900"
-											>Nodes Offline Age</label
+											>{{ t('nodes_off_age') }}</label
 										>
 										<div class="text-xs text-gray-600 mb-2">
 											Nodes not updated within this time will show as red icons.
@@ -2293,7 +2294,7 @@
 									<!-- configWaypointsMaxAgeInSeconds -->
 									<div class="p-2">
 										<label class="block text-sm font-medium text-gray-900"
-											>Waypoints Max Age</label
+											>{{ t('wp_max_age') }}</label
 										>
 										<div class="text-xs text-gray-600 mb-2">
 											Waypoints not updated within this time are hidden. Reload
@@ -2351,7 +2352,7 @@
 									<!-- configTemperatureFormat -->
 									<div class="p-2">
 										<label class="block text-sm font-medium text-gray-900"
-											>Temperature Format</label
+											>{{ t('temp_format') }}</label
 										>
 										<div class="text-xs text-gray-600 mb-2">
 											Metrics will be shown in the selected format.
@@ -2375,7 +2376,7 @@
 													required />
 											</div>
 											<label class="ml-2 text-sm font-medium text-gray-900"
-												>Auto Update Position in URL</label
+												>{{ t('auto_pos_url') }}</label
 											>
 										</div>
 										<div class="text-xs text-gray-600">
@@ -2394,7 +2395,7 @@
 													required />
 											</div>
 											<label class="ml-2 text-sm font-medium text-gray-900"
-												>Enable Map Animations</label
+												>{{ t('map_anim') }}</label
 											>
 										</div>
 										<div class="text-xs text-gray-600">
@@ -2809,7 +2810,80 @@
 		</script>
 
 		<script>
-			Vue.createApp({
+			
+			// ========== i18n ==========
+			var _lang=localStorage.getItem('lang')||'en';
+			var _S={
+				meshtastic_map:["Meshtastic Map","Meshtastic 地图"],
+				search:["Search","搜索"], nodes_lc:["nodes","节点"],
+				settings:["Settings","设置"], reload:["Reload","刷新"],
+				random:["Random","随机"], about:["About","关于"],
+				features:["Features","功能特性"], open_issue:["Open an issue","提交 Issue"],
+				faq:["FAQ","常见问题"], legal:["Legal","法律信息"],
+				devices:["Devices","设备"], by_popular:["Ordered by most popular","按热度排序"],
+				node_info:["Node Info","节点信息"], details:["Details","详情"],
+				position:["Position","位置"], lora_config:["LoRa Config","LoRa 配置"],
+				device_metrics:["Device Metrics","设备指标"],
+				env_metrics:["Environment Metrics","环境指标"],
+				power_metrics:["Power Metrics","电源指标"],
+				trace_routes:["Trace Routes","路由追踪"], raw_data:["Raw Data","原始数据"],
+				share_link:["Share Link","分享链接"], other:["Other","其他"],
+				nodes_max_age:["Nodes Max Age","节点最大保留"],
+				show_all:["Show All","显示全部"],
+				nodes_disc_age:["Nodes Disconnected Age","节点断连判定"],
+				nodes_off_age:["Nodes Offline Age","节点离线判定"],
+				wp_max_age:["Waypoints Max Age","航点最大保留"],
+				temp_format:["Temperature Format","温度格式"],
+				auto_pos_url:["Auto Update Position in URL","自动更新URL位置"],
+				map_anim:["Enable Map Animations","启用地图动画"],
+				mqtt_conn:["MQTT Connected","MQTT 已连接"],
+				mqtt_disc:["MQTT Disconnected","MQTT 未连接"],
+				offline_long:["Offline Too Long","离线过久"],
+				legend:["Legend","图例"], nodes:["Nodes","节点"],
+				all:["All","全部"], routers:["Routers","路由器"],
+				clustered:["Clustered","聚合"], none:["None","无"],
+				overlays:["Overlays","叠加层"], neighbours:["Neighbours","邻居"],
+				waypoints:["Waypoints","航点"],
+				pos_history:["Position History","位置历史"],
+				osm:["OpenStreetMap","OpenStreetMap"], otm:["OpenTopoMap","OpenTopoMap"],
+				esri_sat:["Esri Satellite","Esri 卫星"],
+				g_sat:["Google Satellite","Google 卫星"], g_hyb:["Google Hybrid","Google 混合"],
+				amap:["AMap (Gaode)","高德地图"],
+				loading:["Loading...","加载中..."],
+				show_full:["Show Full Details","查看完整详情"],
+				connected:["Connected","已连接"], disconnected:["Disconnected","已断开"],
+				started_trace:[t("started_trace"),"发起路由追踪"],
+				fwd_packet:[t("fwd_packet"),"转发数据包"],
+				replied_trace:[t("replied_trace"),"回复路由追踪"],
+				gated_mqtt:[t("gated_mqtt"),"转发至MQTT"],
+				map_report:["Map Report","地图报告"],
+				plugged_in:["Plugged In","已接电源"],
+				battery:["Battery","电池"], voltage:["Voltage","电压"],
+				ch_util:["Channel Utilization","信道利用率"],
+				air_util:["Air Util TX","发送占空比"],
+				uptime:["Uptime","运行时间"], temperature:["Temperature","温度"],
+				rel_humidity:["Relative Humidity","相对湿度"],
+				bar_pressure:["Barometric Pressure","气压"],
+				lat:["Latitude","纬度"], lng:["Longitude","经度"],
+				altitude:["Altitude","海拔"], precision:["Precision","精度"],
+				speed:["Speed","速度"], hw_model:["HW Model","硬件型号"],
+				role:["Role","角色"], firmware:["Firmware","固件"],
+				short_name:["Short Name","短名称"], long_name:["Long Name","长名称"],
+				node_id:["Node ID","节点ID"], region:["Region","区域"],
+				modem_preset:["Modem Preset","调制预设"],
+				def_ch:["Has Default Channel","含默认频道"],
+				online_local:["Online Local Nodes","在线本地节点"],
+				snr:["SNR","信噪比"], distance:["Distance","距离"],
+				heard_on:["Heard on","接收时间"], heard_by:["Heard by","接收网关"],
+				ground_speed:["Ground Speed","地面速度"],
+				svc_announce:["Service Announcement","服务公告"],
+				celsius:["Celsius","摄氏度"], fahrenheit:["Fahrenheit","华氏度"],
+			};
+			function t(k){var e=_S[k];if(!e)return k;return _lang==='zh'?(e[1]||e[0]):e[0];}
+			function toggleLang(){localStorage.setItem('lang',_lang==='en'?'zh':'en');location.reload();}
+			// ========== END i18n ==========
+
+Vue.createApp({
 				data() {
 					return {
 						isShowingAnnouncement: this.shouldShowAnnouncement(),
@@ -3993,21 +4067,20 @@
 				div.style.backgroundColor = "white";
 				div.style.padding = "12px";
 				div.innerHTML =
-					`<div style="margin-bottom:6px;"><strong>Legend</strong></div>` +
-					`<div style="display:flex"><div class="icon-mqtt-connected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Connected</div>` +
-					`<div style="display:flex"><div class="icon-mqtt-disconnected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Disconnected</div>` +
-					`<div style="display:flex"><div class="icon-offline" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> Offline Too Long</div>`;
+					`<div style="margin-bottom:6px;"><strong>{{ t('legend') }}</strong></div>` +
+					`<div style="display:flex"><div class="icon-mqtt-connected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> {{ t('mqtt_conn') }}</div>` +
+					`<div style="display:flex"><div class="icon-mqtt-disconnected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> {{ t('mqtt_disc') }}</div>` +
+					`<div style="display:flex"><div class="icon-offline" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> {{ t('offline_long') }}</div>`;
 				return div;
 			};
 
-			// handle baselayerchange to update tile layer preference and coordinate transform
+			// handle baselayerchange
 			map.on("baselayerchange", function (event) {
-				setConfigMapSelectedTileLayer(event.name);
+				var ik=event.name;for(var _k in _ldn){if(_ldn[_k]===event.name){ik=_k;break;}}
+				setConfigMapSelectedTileLayer(ik);
 				var prevGCJ = isGCJ02Layer();
-				_currentBaseLayerName = event.name;
-				if (prevGCJ !== isGCJ02Layer()) {
-					reload();
-				}
+				_baseLayerKey = ik;
+				if (prevGCJ !== isGCJ02Layer()) { reload(); }
 			});
 
 			// handle adding/remove legend on map (can't use L.Control as an overlay, so we toggle an empty L.LayerGroup)
@@ -4022,21 +4095,26 @@
 			});
 
 			// add layers to control ui
+
+			// i18n layer display names
+			var _ldn={OpenStreetMap:t("osm"),OpenTopoMap:t("otm"),"Esri Satellite":t("esri_sat"),"Google Satellite":t("g_sat"),"Google Hybrid":t("g_hyb"),AMap:t("amap")};
+			var _i18nT={};for(var _k in tileLayers){_i18nT[_ldn[_k]||_k]=tileLayers[_k];}
+
 			L.control
 				.groupedLayers(
-					tileLayers,
+					_i18nT,
 					{
-						Nodes: {
-							All: nodesLayerGroup,
-							Routers: nodesRouterLayerGroup,
-							Clustered: nodesClusteredLayerGroup,
-							None: new L.LayerGroup(),
+						[t("nodes")]: {
+							[t("all")]: nodesLayerGroup,
+							[t("routers")]: nodesRouterLayerGroup,
+							[t("clustered")]: nodesClusteredLayerGroup,
+							[t("none")]: new L.LayerGroup(),
 						},
-						Overlays: {
-							Legend: legendLayerGroup,
-							Neighbours: neighboursLayerGroup,
-							Waypoints: waypointsLayerGroup,
-							"Position History": nodePositionHistoryLayerGroup,
+						[t("overlays")]: {
+							[t("legend")]: legendLayerGroup,
+							[t("neighbours")]: neighboursLayerGroup,
+							[t("waypoints")]: waypointsLayerGroup,
+							[t("pos_history")]: nodePositionHistoryLayerGroup,
 						},
 					},
 					{
@@ -4973,15 +5051,15 @@
 
 						let tooltip = "";
 						if (positionHistory.type === "position") {
-							tooltip += `<b>Position</b>`;
+							tooltip += `" + t("position") + "`;
 						} else if (positionHistory.type === "map_report") {
-							tooltip += `<b>Map Report</b>`;
+							tooltip += `" + t("map_report") + "`;
 						}
 						tooltip += `<br/>[${escapeString(node.short_name)}] ${escapeString(
 							node.long_name
 						)}`;
 						if (positionHistory.ground_speed) {
-							tooltip += `<br/>Ground Speed: ${positionHistory.ground_speed} km/h`;
+							tooltip += `<br/>t("ground_speed") + ": ${positionHistory.ground_speed} km/h`;
 						}
 						tooltip += `<br/>${positionHistory.latitude}, ${positionHistory.longitude}`;
 						tooltip += `<br/>Heard on: ${moment(
@@ -5184,15 +5262,15 @@
 				// determine if node was recently heard uplinking packets to mqtt
 				const nodeHasUplinkedToMqttRecently =
 					hasNodeUplinkedToMqttRecently(node);
-				var mqttStatus = `<span class="text-blue-700">Disconnected</span>`;
+				var mqttStatus = `<span class="text-blue-700">{{ t('disconnected') }}</span>`;
 				if (node.mqtt_connection_state_updated_at) {
 					var mqttStatusUpdatedAt = moment(
 						new Date(node.mqtt_connection_state_updated_at)
 					).fromNow();
 					if (nodeHasUplinkedToMqttRecently) {
-						mqttStatus = `<span><span class="text-green-700">Connected</span> (${mqttStatusUpdatedAt})</span>`;
+						mqttStatus = `<span><span class="text-green-700">{{ t('connected') }}</span> (${mqttStatusUpdatedAt})</span>`;
 					} else {
-						mqttStatus = `<span><span class="text-blue-700">Disconnected</span> (${mqttStatusUpdatedAt})</span>`;
+						mqttStatus = `<span><span class="text-blue-700">{{ t('disconnected') }}</span> (${mqttStatusUpdatedAt})</span>`;
 					}
 				}
 
@@ -5275,7 +5353,7 @@
 					: "";
 
 				// show details button
-				tooltip += `<br/><br/><button onclick="showNodeDetails(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Show Full Details</button>`;
+				tooltip += `<br/><br/><button onclick="showNodeDetails(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">{{ t('show_full') }}</button>`;
 				tooltip += `<br/><button onclick="showNodeNeighboursThatHeardUs(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Show Neighbours (Heard Us)</button>`;
 				tooltip += `<br/><button onclick="showNodeNeighboursThatWeHeard(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200">Show Neighbours (We Heard)</button>`;
 				tooltip += `</div>`;
